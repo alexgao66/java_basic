@@ -34,6 +34,4 @@ public class StringMehthodTest {
 		// trim
 		System.out.println("           a;b;   c    ".trim());
 	}
-	
-	
 }
