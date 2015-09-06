@@ -19,14 +19,14 @@ public class MapTest {
 
 	public static void main(String[] args) {
 //		hashMapTest();
-//		linkedHashMapTest();
+		linkedHashMapTest();
 //		mapTranservalWithEnrySetTest();
 //		linkedHashMapAccessOrderTest();
 //		treeMapTest();
 //		mapTraservalWithIteratorTest();
 //		mapTraservalWithKeySetTest();
 //		hashTableTest();
-		currentHashMapTest();
+//		currentHashMapTest();
 	}
 	
 	/**

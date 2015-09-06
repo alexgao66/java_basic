@@ -14,11 +14,11 @@ public class WaitAndNotify2 {
 
 	public static void main(String[] args) {
 		ExecutorService es = Executors.newCachedThreadPool();
-		es.submit(new SubThreadA());
-		es.submit(new SubThreadB());
-//		SubThreadAWait a = new SubThreadAWait();
-//		es.submit(a);
-//		es.submit(new SubThreadBWait(a));
+//		es.submit(new SubThreadA());
+//		es.submit(new SubThreadB());
+		SubThreadAWait a = new SubThreadAWait();
+		es.submit(a);
+		es.submit(new SubThreadBWait(a));
 		es.shutdown();
 	}
 	

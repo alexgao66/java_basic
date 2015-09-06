@@ -6,7 +6,7 @@ import java.util.List;
 public class ArraysTest {
 
 	public static void main(String[] args) {
-		
+		System.out.println("\\/");
 	}
 	
 	/**
@@ -23,4 +23,5 @@ public class ArraysTest {
 	
 		System.out.println(intList);
 	}
+	
 }

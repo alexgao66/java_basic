@@ -3,6 +3,22 @@ package com.alex.j2se.string;
 public class StringMehthodTest {
 
 	public static void main(String[] args) {
+//		commonMethod();
+//		specialSplit();
+		replaceAll();
+	}
+	
+	public static void specialSplit() {
+		// 使用正则表达关键字做分隔时
+		System.out.println("a.b.c".split(".").length);
+	}
+	
+	public static void replaceAll() {
+		System.out.println("http:\\/\\/dlsw.baidu.com\\/sw-search-sp\\/soft\\/cc\\/13478\\/npp.6.6.9.Installer.1410249599.exe".replace("\\/", "/"));
+		System.out.println("abcbe".replace('b', 'f'));
+	}
+
+	public static void commonMethod() {
 		// split
 		System.out.println("a;b;c".split(";").length);
 		// charAt
@@ -34,4 +50,6 @@ public class StringMehthodTest {
 		// trim
 		System.out.println("           a;b;   c    ".trim());
 	}
+	
+	
 }
