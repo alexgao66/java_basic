@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="10 seconds">
+
+    <timestamp key="byDay" datePattern="yyyyMMdd" />
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <Encoding>GBK</Encoding>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%date %-16thread %-5level %-30.30logger{0} - %msg%n</pattern>
+        </layout>
+    </appender>
+
+	<!-- <appender name="main" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>/letv/logs/dubbo-cdn-config/main.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>
+                /letv/logs/dubbo-cdn-config/main%i.log
+            </FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>50</MaxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>500MB</MaxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <Pattern>[%d{yyyyMMdd HH:mm:ss}] [%-5level] [%-30logger{0}][%-3L] [SeqId:%X{SeqId}] - %msg%n</Pattern>
+        </encoder>
+    </appender> -->
+	
+	<!-- <logger name="com.lecloud"  additivity="false" level="info">
+        <appender-ref ref="main" />
+        <appender-ref ref="error"/>
+        <appender-ref ref="stdout"/>
+    </logger> -->
+	
+    <root>
+        <level value="INFO" />
+        <!-- <appender-ref ref="main" /> -->
+        <appender-ref ref="stdout"/>
+    </root>
+</configuration>
+

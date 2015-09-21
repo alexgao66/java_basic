@@ -1,4 +1,4 @@
-package com.alex.j2se.thread;
+package com.alex.j2se.thread.lock;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

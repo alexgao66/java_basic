@@ -40,6 +40,7 @@ public class CharDispCount {
 			}
 			map.put(c, count);
 		}
+		in.close();
 		return map;
 	}
 }	
