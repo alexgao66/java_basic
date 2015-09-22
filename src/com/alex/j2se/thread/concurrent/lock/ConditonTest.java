@@ -1,4 +1,4 @@
-package com.alex.j2se.thread.lock;
+package com.alex.j2se.thread.concurrent.lock;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -7,7 +7,8 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 测试使用Condition进行线程间的协作
+ * 测试使用ReentrantLock和Condition进行线程间的协作<br>
+ * 进行更细粒度的并发访问控制<br>
  * @author alex
  *
  */
