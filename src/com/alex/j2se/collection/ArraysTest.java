@@ -1,12 +1,29 @@
 package com.alex.j2se.collection;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 public class ArraysTest {
 
 	public static void main(String[] args) {
-		System.out.println("\\/");
+		List<Integer> intList = addToList();
+//		testRemoveByIndex(intList);
+		System.out.println("after init:");
+		printArray(intList);
+		testRemoveByIterator(intList);
+		System.out.println("after remove:");
+		printArray(intList);
+	}
+
+	private static List<Integer> addToList() {
+		List<Integer> intList = new ArrayList<Integer>();
+		for(int i = 0; i < 10; ++i) {
+			intList.add(i * 2);
+		}
+		System.out.println("size:" + intList.size());
+		return intList;
 	}
 	
 	/**
@@ -24,4 +41,37 @@ public class ArraysTest {
 		System.out.println(intList);
 	}
 	
+	/**
+	 * 打印输出数组
+	 * @param intList
+	 */
+	public static void printArray(List<Integer> intList) {
+		for(int i = 0; i < intList.size(); ++i) {
+			System.out.println(intList.get(i));
+		}
+	}
+	
+	/**
+	 * 通过下标删除元素，报错
+	 * @param intList
+	 */
+	public static void testRemoveByIndex(List<Integer> intList) {
+		for(int i = 0, len = intList.size(); i < len; ++i) {
+			if(intList.get(i) % 4 == 0) {
+				intList.remove(i);
+			}
+		}
+	}
+	
+	/**
+	 * 通过iterator删除元素，Iteror内部使用变量来存储iterator当前的位置
+	 * @param intList
+	 */
+	public static void testRemoveByIterator(List<Integer> intList) {
+		for(Iterator<Integer> it = intList.iterator(); it.hasNext(); it.next()){
+			if(it.next() % 4 == 0) {
+				it.remove();
+			}
+		}
+	}
 }
