@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import com.dangdang.ddframe.job.api.AbstractPerpetualElasticJob;
 import com.dangdang.ddframe.job.api.JobExecutionMultipleShardingContext;
 
-@Component
+//@Component
 public class MyElasticJob extends AbstractPerpetualElasticJob<Task> {
 	
 	private static final Logger log = LoggerFactory.getLogger(MyElasticJob.class);

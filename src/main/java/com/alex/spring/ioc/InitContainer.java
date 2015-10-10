@@ -1,4 +1,4 @@
-package com.alex.spring;
+package com.alex.spring.ioc;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
