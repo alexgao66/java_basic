@@ -19,9 +19,9 @@
 	   http://www.springframework.org/schema/util 
 	   http://www.springframework.org/schema/util/spring-util.xsd">
 	   
-    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
     
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" />
     
     <context:component-scan base-package="com.alex" >
         <context:exclude-filter type="assignable" expression="org.springframework.stereotype.Controller"/>

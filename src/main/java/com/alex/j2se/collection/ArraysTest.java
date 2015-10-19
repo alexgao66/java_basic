@@ -8,13 +8,15 @@ import java.util.List;
 public class ArraysTest {
 
 	public static void main(String[] args) {
-		List<Integer> intList = addToList();
+//		List<Integer> intList = addToList();
 //		testRemoveByIndex(intList);
-		System.out.println("after init:");
+		/*System.out.println("after init:");
 		printArray(intList);
 		testRemoveByIterator(intList);
 		System.out.println("after remove:");
-		printArray(intList);
+		printArray(intList);*/
+		arrayAsList(new String[]{"1","2","3"});
+		arrayAsList(new String[]{"1","2","3"}, new String[]{"4","5","6"});
 	}
 
 	private static List<Integer> addToList() {
@@ -73,5 +75,13 @@ public class ArraysTest {
 				it.remove();
 			}
 		}
+	}
+	
+	public static void arrayAsList(String[] strs) {
+		System.out.println(Arrays.asList(strs));
+	}
+	
+	public static void arrayAsList(String[] strs1, String[] strs2) {
+		System.out.println(Arrays.asList(strs1, strs2));
 	}
 }
