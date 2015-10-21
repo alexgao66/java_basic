@@ -15,7 +15,7 @@ public class JedisBasicCommandTest {
 	}
 	
 	public static void main(String[] args) {
-		zsetTest();
+		keyTest();
 	}
 
 
