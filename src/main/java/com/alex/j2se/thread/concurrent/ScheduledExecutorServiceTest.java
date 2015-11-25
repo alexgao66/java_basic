@@ -34,7 +34,7 @@ public class ScheduledExecutorServiceTest {
 				System.out.println("finish..." + (System.currentTimeMillis() - start));
 				++count;
 			} catch (Exception e) {
-				System.out.println("错误！");
+				System.out.println("error");
 				e.printStackTrace();
 			}
 		}

@@ -34,7 +34,7 @@
 
     <mvc:default-servlet-handler />
     
-    <!-- 支持上传文件 
+    <!-- 支持上传文件 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
-	-->
+	
 </beans>

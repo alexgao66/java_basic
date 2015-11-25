@@ -1,11 +1,15 @@
 package com.alex.httpClient;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -17,7 +21,10 @@ import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.entity.FileEntity;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
@@ -92,6 +99,25 @@ public class HttpClientUtil {
 		});
     }
     
+    public static void main(String[] args) {
+		String filePathPrefix = "d:/data/domain_ca/www.2322.com/b.pem";
+		File caFile = new File(filePathPrefix);
+		try {
+			Map<String,Object> params = new HashMap<String,Object>();
+			params.put("user", 138867);
+			params.put("access", "www.2322.com");
+			params.put("caName", "b.pem");
+			params.put("caMd5", "ae27a4b4821b13cad2a17a75d219853e");
+			String result = HttpClientUtil.postWithFile(
+					"http://10.58.139.215:9000/control/user/cert/ca/add", 
+//					"http://localhost:8090/hello/post",
+					params, null, caFile, -1);
+			log.info("result:{}", result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    
     /**
      * Post请求<br>
      * url和消息体均按UTF-8进行编码
@@ -114,6 +140,36 @@ public class HttpClientUtil {
     	HttpPost post = new HttpPost(uri);
     	if(StringUtils.isNotBlank(entityBody)) {
     		post.setEntity(new StringEntity(entityBody, UTF_8));
+    	}
+    	return request(post, urlParams, headerMap, connectionTimeout);
+    }
+    
+    /**
+     * 使用Post请求提交文件<br>
+     * url和消息体均按UTF-8进行编码，文件会转化为String进行提交，所以文件必须较小<br>
+     * 2015年11月10日<br>
+     * @author gao.jun
+     * @param uri
+     * @param urlParams url中的参数
+     * @param headerMap header中的参数
+     * @param entityFile 消息体中的文件
+     * @param connectionTimeout 超时时间，如果为-1，则为默认时间CONNECTION_TIMEOUT，单位毫秒
+     * @return response中的消息体，如果消息体为null，则返回null
+     * @throws ClientProtocolException
+     * @throws IOException
+     */
+    public static String postWithFile(String uri, Map<String, Object> urlParams, Map<String, Object> headerMap, File entityFile, 
+    		int connectionTimeout) throws Exception  {
+    	if(urlParams != null && !urlParams.isEmpty()) {
+    		uri = addParams(uri, urlParams, UTF_8);
+    	}
+    	HttpPost post = new HttpPost(uri);
+    	if(entityFile != null) {
+//    		FileBody file = new FileBody(entityFile);
+//    		MultipartEntity reqEntity = new MultipartEntity();  
+//            reqEntity.addPart("file", file);  
+//    		post.setEntity(reqEntity);
+    		post.setEntity(new StringEntity(IOUtils.toString(new FileInputStream(entityFile))));
     	}
     	return request(post, urlParams, headerMap, connectionTimeout);
     }
