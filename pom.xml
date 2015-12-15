@@ -9,23 +9,18 @@
 	
 	<repositories>
         <repository>
-            <id>letv.public</id>
-            <name>Letv.com Repository</name>
-            <url>http://maven.letv.cn/nexus/content/groups/public/</url>
+            <id>os-china</id>
+            <name>os china repository</name>
+            <url>http://maven.oschina.net/content/groups/public/</url>
         </repository>
         <repository>
-            <id>saas-releases</id>
-            <name>saas releases repository</name>
-            <url>http://10.154.156.83:10081/nexus/content/repositories/public/</url>
+            <id>maven-restlet</id>
+            <name>Restlet repository</name>
+            <url>http://maven.restlet.com</url>
         </repository>
     </repositories>
 	
 	<pluginRepositories>
-        <pluginRepository>
-            <id>letv.public</id>
-            <name>Letv.com Repository</name>
-            <url>http://maven.letv.cn/nexus/content/repositories/public/</url>
-        </pluginRepository>
     </pluginRepositories>
     
     <properties>
@@ -70,7 +65,7 @@
                 <configuration>
                     <connectors> 
 	                    <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-		                    <port>8090</port>
+		                    <port>8190</port>
 		                    <maxIdleTime>60000</maxIdleTime>
 	                    </connector>
                     </connectors>
@@ -78,7 +73,7 @@
                     <webDefaultXml>webdefault.xml</webDefaultXml>
                     <scanIntervalSeconds>0</scanIntervalSeconds>
                     <stopKey>foo</stopKey>
-                    <stopPort>9900</stopPort>
+                    <stopPort>9910</stopPort>
                 </configuration>
                 <executions>
                     <execution>
@@ -124,13 +119,13 @@
 		    <version>4.0.14.Final</version>
 		</dependency>
 		
-		<!-- activemq -->
+		<!-- activemq
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-all</artifactId>
 			<version>5.12.1</version>
 		</dependency>
-				
+				 -->
 	
 		 <!-- redis -->
         <dependency>
@@ -328,6 +323,30 @@
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
+
+        <dependency>
+            <groupId>org.restlet.jee</groupId>
+            <artifactId>org.restlet</artifactId>
+            <version>2.3.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.restlet.jee</groupId>
+            <artifactId>org.restlet.ext.servlet</artifactId>
+            <version>2.3.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.restlet.jee</groupId>
+            <artifactId>org.restlet.ext.spring</artifactId>
+            <version>2.3.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jsp-2.1</artifactId>
+            <version>6.1.14</version>
+        </dependency>
 	</dependencies>
 	
 </project>

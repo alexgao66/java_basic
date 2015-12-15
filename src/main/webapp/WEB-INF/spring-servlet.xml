@@ -14,14 +14,10 @@
 
     <!-- 默认的注解映射的支持 -->
     <mvc:annotation-driven />
-    <!-- <bean id="exceptionResolver" class="com.letv.cdn.report.controller.ExceptionHandler"></bean> -->
-    
+
     <aop:aspectj-autoproxy/> 
     
-    <!-- <mvc:interceptors>
-        <bean class="com.letv.cdn.report.privilege.aspect.AuthInterceptor"></bean>
-    </mvc:interceptors>  -->
-    
+
     <context:component-scan base-package="com.alex.spring.mvc" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>

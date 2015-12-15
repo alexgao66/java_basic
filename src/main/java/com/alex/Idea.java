@@ -29,4 +29,11 @@ public class Idea {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public static void main(String[] args) {
+        boolean b = "a".equals("d");
+        if (b) {
+            System.out.println("ddd");
+        }
+    }
 }
