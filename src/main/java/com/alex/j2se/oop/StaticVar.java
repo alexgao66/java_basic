@@ -9,8 +9,12 @@ import java.util.Random;
  */
 public class StaticVar {
 	static {
-		System.out.println("Class4Load loaded...");
+		System.out.println("StaticVar loaded...");
 	}
+
+	/*{
+		System.out.println("StaticVar init...");
+	}*/
 	
 	public static String VAR = "VAR_In_LOAD";
 	

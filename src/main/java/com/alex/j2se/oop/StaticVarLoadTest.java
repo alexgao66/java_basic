@@ -10,8 +10,11 @@ import com.alex.j2se.oop.StaticVar;
 public class StaticVarLoadTest {
 	
 	public static void main(String[] args) {
-		System.out.println("StaticVarLoadTest");
-		printStaticVar();
+//		System.out.println("StaticVarLoadTest");
+//		printStaticVar();
+		// 初始化时会先加载父类静态代码库,再加载子类静态代码块,且只加载一次
+		new StaticVarChildren();
+		new StaticVarBChilren();
 	}
 	
 	private static void printStaticVar() {
