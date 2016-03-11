@@ -20,7 +20,7 @@ public class HelloClient {
             TProtocol protocol = new TBinaryProtocol(transport);
             HelloService.Client client = new HelloService.Client(protocol);
             transport.open();
-            client.say("高俊");
+            client.say("alex gao");
             transport.close();
             System.out.println("Client close connection");
         } catch (TTransportException e) {
