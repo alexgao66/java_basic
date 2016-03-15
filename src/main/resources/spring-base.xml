@@ -30,19 +30,5 @@
     <aop:aspectj-autoproxy />
 
 
-    <bean name="router" class="org.restlet.ext.spring.SpringBeanRouter" />
-
-    <!--  Define the router -->
-    <bean id="basecampAppliction" class="com.alex.restful.restlet.HelloApplication">
-        <property name="inboundRoot" ref="router" />
-    </bean>
-
-    <bean id="basecampComponent" class="org.restlet.ext.spring.SpringComponent">
-        <property name="defaultTarget" ref="basecampAppliction" />
-    </bean>
-
-    <!-- Define all the routes -->
-    <bean name="/hotel" class="com.alex.restful.restlet.HotelResource" scope="prototype" autowire="byName" />
-    
-    <import resource="spring-*-autowire.xml" />
+    <!--<import resource="spring-*-autowire.xml" />-->
 </beans>

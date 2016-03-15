@@ -13,24 +13,27 @@
         <param-value>classpath:spring-base.xml</param-value>
     </context-param>
 
-    <!-- Application class name -->
+    <!-- Application class name
     <context-param>
         <param-name>org.restlet.component</param-name>
         <param-value>basecampComponent</param-value>
     </context-param>
+    -->
 
-    <!-- Restlet adapter -->
+    <!-- Restlet adapter
     <servlet>
         <servlet-name>basecamp</servlet-name>
         <servlet-class>org.restlet.ext.spring.SpringServerServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    -->
 
-    <!-- Catch all requests -->
+    <!-- Catch all requests
     <servlet-mapping>
         <servlet-name>basecamp</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
+    -->
 
     <servlet>
         <servlet-name>spring</servlet-name>
@@ -75,7 +78,7 @@
     
 	
     <welcome-file-list>
-        <welcome-file>/jsp/login.jsp</welcome-file>
+        <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
     <session-config>
        <session-timeout>60</session-timeout>

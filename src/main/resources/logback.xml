@@ -12,10 +12,10 @@
     </appender>
 
 	<appender name="main" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>/logs/java_basic/main.log</File>
+        <File>/Users/gaojun/logs/java_basic/main.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
             <FileNamePattern>
-                /logs/java_basic/main%i.log
+                /Users/gaojun/logs/java_basic/main%i.log
             </FileNamePattern>
             <MinIndex>1</MinIndex>
             <MaxIndex>50</MaxIndex>

@@ -5,8 +5,12 @@ import com.lowagie.text.Element;
 import com.lowagie.text.Font;
 import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.*;
+import org.apache.commons.io.FileUtils;
 import sun.font.FontFamily;
 
+import javax.servlet.ServletContext;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -16,7 +20,7 @@ import java.io.IOException;
 public class PDFWatermark {
 
     public static void main(String[] args) throws IOException, DocumentException {
-        overWatermark();
+//        overWatermark();
 
         /*String FILE_DIR = "/Users/gaojun/work/开放平台/";
 
@@ -32,12 +36,15 @@ public class PDFWatermark {
         reader.close();*/
     }
 
-    private static void overWatermark() throws IOException, DocumentException {
-        String FILE_DIR = "/Users/gaojun/work/开放平台/";
+    public static void overWatermark(byte[] fileBytes, String outPath) throws IOException, DocumentException {
+        /*String FILE_DIR = "/Users/gaojun/work/开放平台/";
 
-        PdfReader reader = new PdfReader(FILE_DIR + "美团酒店-直连开放平台_v0.1.pdf");
+        PdfReader reader = new PdfReader(FILE_DIR + "美团酒店-直连开放平台_v0.1_noWatermark.pdf");
         PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(FILE_DIR
-                + "/美团酒店-直连开放平台_v0.1_new.pdf"));
+                + "/美团酒店-直连开放平台_v0.1.pdf"));*/
+
+        PdfReader reader = new PdfReader(fileBytes);
+        PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(outPath));
 
         int n = reader.getNumberOfPages();
 
