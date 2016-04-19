@@ -1,11 +1,14 @@
 package com.alex.spring.mvc;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,6 +37,27 @@ public class HelloController {
 		obj.put("success", true);
 		return obj;
 	}
+
+	@ResponseBody
+	@RequestMapping(value = "/getObj", method=RequestMethod.GET, produces = "text/html;charset=UTF-8")
+	public Object getObj() {
+		CommonResult result = new CommonResult();
+//		result.setMsg("你好!");
+//		result.setStatus(1);
+
+		List<Model> models = new ArrayList<Model>();
+		Model m1 = new Model(1, "m1");
+		Model m2 = new Model(2, "m2");
+		models.add(m1);
+		models.add(m2);
+
+//		result.setData(models);
+
+		SimplePropertyPreFilter filter =
+				new SimplePropertyPreFilter(Model.class, "name");
+
+		return JSON.toJSONString(result, filter);
+	}
 	
 	@ResponseBody
 	@RequestMapping(value= "/perform", method=RequestMethod.GET)
@@ -49,6 +73,18 @@ public class HelloController {
 		JSONObject obj = new JSONObject();
 		obj.put("success", true);
 		log.info("size:{}, perform cost:{}", map.size(), System.currentTimeMillis() - start);
+		return obj;
+	}
+
+	@ResponseBody
+	@RequestMapping(value= "/postList", method=RequestMethod.POST)
+	public JSONObject postList(@RequestBody List<CommonResult> results) {
+		for (CommonResult result : results) {
+			System.out.println("msg:" + result.getMsg());
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("success", true);
+		obj.put("msg", results.get(0).getMsg());
 		return obj;
 	}
 	

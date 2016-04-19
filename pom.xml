@@ -101,7 +101,11 @@
 	</build>
 
 	<dependencies>
-
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.12</version>
+        </dependency>
 
         <dependency>
             <groupId>com.lowagie</groupId>
@@ -128,6 +132,12 @@
 		    <artifactId>netty-all</artifactId>
 		    <version>4.0.14.Final</version>
 		</dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.14.8</version>
+        </dependency>
 		
 		<!-- activemq
 		<dependency>

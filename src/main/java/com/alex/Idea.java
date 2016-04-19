@@ -30,10 +30,14 @@ public class Idea {
         this.age = age;
     }
 
+//    public static void main(String[] args) {
+//        boolean b = "a".equals("d");
+//        if (b) {
+//            System.out.println("ddd");
+//        }
+//    }
+
     public static void main(String[] args) {
-        boolean b = "a".equals("d");
-        if (b) {
-            System.out.println("ddd");
-        }
+        System.out.println(Integer.MAX_VALUE);
     }
 }

@@ -6,9 +6,10 @@ package com.alex.j2se.enumTest;
 public class ObjEnumTest {
 
     public static void main(String[] args) {
-        ObjEnum.ObjA.getObj().print();
-        ObjEnum.ObjB.getObj().print();
-        ObjEnum.ObjA.getObj().print();
+//        ObjEnum.ObjA.getObj().print();
+//        ObjEnum.ObjB.getObj().print();
+//        ObjEnum.ObjA.getObj().print();
+        System.out.println(NormalEnum.TYPE_1.ordinal());
     }
 
 }
