@@ -5,7 +5,7 @@ public class StringMehthodTest {
 	public static void main(String[] args) {
 //		commonMethod();
 //		specialSplit();
-		replaceAll();
+		formateTest();
 	}
 	
 	public static void specialSplit() {
@@ -51,5 +51,7 @@ public class StringMehthodTest {
 		System.out.println("           a;b;   c    ".trim());
 	}
 	
-	
+	public static void formateTest() {
+		System.out.println(String.format("[%s], [%s]", "hi", "alex"));
+	}
 }

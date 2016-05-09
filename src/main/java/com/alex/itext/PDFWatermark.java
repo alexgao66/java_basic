@@ -1,18 +1,13 @@
 package com.alex.itext;
 
-import com.lowagie.text.DocumentException;
-import com.lowagie.text.Element;
-import com.lowagie.text.Font;
-import com.lowagie.text.Phrase;
+import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import sun.font.FontFamily;
 
 import javax.servlet.ServletContext;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Created by gaojun on 16/3/11.
@@ -20,7 +15,7 @@ import java.io.IOException;
 public class PDFWatermark {
 
     public static void main(String[] args) throws IOException, DocumentException {
-//        overWatermark();
+        imageWatermark();
 
         /*String FILE_DIR = "/Users/gaojun/work/开放平台/";
 
@@ -37,14 +32,14 @@ public class PDFWatermark {
     }
 
     public static void overWatermark(byte[] fileBytes, String outPath) throws IOException, DocumentException {
-        /*String FILE_DIR = "/Users/gaojun/work/开放平台/";
+        String FILE_DIR = "/Users/gaojun/work/开放平台/";
 
         PdfReader reader = new PdfReader(FILE_DIR + "美团酒店-直连开放平台_v0.1_noWatermark.pdf");
         PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(FILE_DIR
-                + "/美团酒店-直连开放平台_v0.1.pdf"));*/
+                + "/美团酒店-直连开放平台_v0.1.pdf"));
 
-        PdfReader reader = new PdfReader(fileBytes);
-        PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(outPath));
+//        PdfReader reader = new PdfReader(fileBytes);
+//        PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(outPath));
 
         int n = reader.getNumberOfPages();
 
@@ -58,7 +53,7 @@ public class PDFWatermark {
             //文字水印
             PdfContentByte over = stamp.getOverContent(i);
             over.beginText();
-            over.setFontAndSize(bf, 18);
+            over.setFontAndSize(bf, 25);
             over.setTextMatrix(30, 30);
             over.setGState(gs1);
             over.showTextAligned(Element.ALIGN_LEFT, "meituan.com", 230, 450, 45);
@@ -69,5 +64,29 @@ public class PDFWatermark {
         reader.close();
 
     }
+
+    public static void imageWatermark() throws IOException, DocumentException {
+        String FILE_DIR = "/Users/gaojun/work/开放平台/";
+
+        PdfReader reader = new PdfReader(FILE_DIR + "美团酒店-直连开放平台_v0.1_noWatermark.pdf");
+        PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(FILE_DIR
+                + "/美团酒店-直连开放平台_v0.1.1.pdf"));
+        PdfGState gs1 = new PdfGState();
+        gs1.setFillOpacity(0.1f);
+
+        int n = reader.getNumberOfPages();
+        for(int i = 1; i <= n; i++) {
+            PdfContentByte pdfContentByte = stamp.getOverContent(i);
+            pdfContentByte.setGState(gs1);
+            Image image = Image.getInstance(IOUtils.toByteArray(new FileInputStream("/Users/gaojun/Desktop/Snip20160420_28.png")));
+
+            image.setAbsolutePosition(100, 300);
+            pdfContentByte.addImage(image);
+        }
+
+        stamp.close();
+        reader.close();
+    }
+
 
 }

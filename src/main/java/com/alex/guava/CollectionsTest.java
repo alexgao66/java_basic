@@ -9,6 +9,7 @@ import org.apache.commons.lang.StringUtils;
 public class CollectionsTest {
 
     public static void main(String[] args) {
+        // Sets
         Sets.newHashSet(StringUtils.split("a|b", "|"));
     }
 }
