@@ -1,4 +1,4 @@
-package com.alex.jest;
+package com.alex.elasticSearch.jest;
 
 import com.google.common.base.Stopwatch;
 import io.searchbox.client.JestClient;

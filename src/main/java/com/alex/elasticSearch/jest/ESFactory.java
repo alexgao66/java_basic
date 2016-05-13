@@ -1,4 +1,4 @@
-package com.alex.jest;
+package com.alex.elasticSearch.jest;
 
 import io.searchbox.client.JestClientFactory;
 import io.searchbox.client.config.HttpClientConfig;

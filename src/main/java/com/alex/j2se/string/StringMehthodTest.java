@@ -52,6 +52,6 @@ public class StringMehthodTest {
 	}
 	
 	public static void formateTest() {
-		System.out.println(String.format("[%s], [%s]", "hi", "alex"));
+		System.out.println(String.format("[%s], [%s]\n[%s]", "hi", "alex", "all"));
 	}
 }
