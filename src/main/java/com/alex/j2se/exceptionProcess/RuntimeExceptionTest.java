@@ -10,7 +10,15 @@ package com.alex.j2se.exceptionProcess;
 public class RuntimeExceptionTest {
 	
 	public static void main(String[] args) {
-		System.out.println(process(0));
+		try {
+			System.out.println(process(0));
+		}/*catch (MyRuntimeException myException){
+			System.out.println("MyRuntimeException");
+		}*/catch (Exception e) {
+			System.out.println("Exception");
+		}
+
+
 	}
 	
 	public static int process(int i) {

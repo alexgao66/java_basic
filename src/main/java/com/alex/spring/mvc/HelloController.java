@@ -39,7 +39,7 @@ public class HelloController {
 	@RequestMapping(value = "/getObj", method=RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public Object getObj() {
 		CommonResult result = new CommonResult();
-//		result.setMsg("你好!");
+		result.setMsg("你好!");
 //		result.setStatus(1);
 
 		List<Model> models = new ArrayList<Model>();

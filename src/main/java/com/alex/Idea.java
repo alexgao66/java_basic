@@ -38,6 +38,6 @@ public class Idea {
 //    }
 
     public static void main(String[] args) {
-        System.out.println(Integer.MAX_VALUE);
+        System.out.println(11*10^6);
     }
 }
