@@ -9,6 +9,7 @@ public class FinallyAfterReturn {
 	
 	public static void main(String[] args) {
 		returnIntry();
+		exceptionInCatch();
 		exitInTry();
 	}
 	
@@ -32,6 +33,17 @@ public class FinallyAfterReturn {
 		} catch(Exception e) {
 		} finally {
 			System.out.println("I'm in finally of exitInTry!");
+		}
+	}
+
+	private static void exceptionInCatch() {
+		try {
+			System.out.println("I'm in try of exceptionInCatch!");
+			throw new IllegalArgumentException("exceptionInCatch");
+		} catch(Exception e) {
+			throw new RuntimeException("abc");
+		} finally {
+			System.out.println("I'm in finally of exceptionInCatch!!!!!");
 		}
 	}
 }
